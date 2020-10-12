@@ -68,5 +68,11 @@ class Hero(object):
             self.air_time += 1
                 
 
-    def draw(self, display):
-        pygame.draw.rect(display, self.color, self.player_rect)
+    def draw(self, display, scroll):
+        rect_pos = pygame.Rect(
+            (self.player_rect.x - scroll[0]),
+            (self.player_rect.y - scroll[1]),
+            self.player_rect.width,
+            self.player_rect.height
+        )
+        pygame.draw.rect(display, self.color, rect_pos)
