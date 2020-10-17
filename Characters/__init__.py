@@ -4,7 +4,7 @@ class Hero(object):
     def __init__(self, x, y):
         self.air_time = 0
         self.vertical_momentum = 0
-        self.player_rect = pygame.Rect(x, y, 20, 40)
+        self.player_rect = pygame.Rect(x, y, 16, 32)
         self.color = pygame.Color(0,0,0,50)
 
 
@@ -12,8 +12,8 @@ class Hero(object):
         def collision(rect, tiles):
             hit_list = []
             for tile in tiles:
-                if rect.colliderect(tile):
-                    hit_list.append(tile)
+                if rect.colliderect(tile.rect):
+                    hit_list.append(tile.rect)
             
             return hit_list
         rect = self.player_rect.copy()
